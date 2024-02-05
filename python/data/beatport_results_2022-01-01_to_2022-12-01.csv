@@ -1,0 +1,923 @@
+Type,Name,Count
+Genre,Tech House,247
+Genre,Electronica,18
+Genre,Dance / Electro Pop,97
+Genre,House,102
+Genre,Melodic House & Techno,100
+Genre,Funky House,70
+Genre,Deep House,25
+Genre,Bass House,39
+Genre,Drum & Bass,61
+Genre,Techno (Peak Time / Driving),103
+Genre,Organic House / Downtempo,9
+Genre,Progressive House,18
+Genre,Nu Disco / Disco,22
+Genre,Indie Dance,18
+Genre,Afro House,30
+Genre,Electro House,2
+Genre,Trance (Main Floor),7
+Genre,Minimal / Deep Tech,16
+Genre,Mainstage,6
+Genre,Dubstep,4
+Genre,UK Garage / Bassline,7
+Genre,Hard Techno,2
+Genre,Jackin House,2
+Genre,Bass / Club,3
+Genre,Trap / Wave,1
+Label,THRIVE MUSIC,12
+Label,Cleopatra Records,3
+Label,EMI,14
+Label,SOLOTOKO,14
+Label,Repopulate Mars,26
+Label,Insomniac Records,12
+Label,Black Book Records,15
+Label,Cr2 Records,6
+Label,Phonetic Recordings,4
+Label,UPPERGROUND,9
+Label,Ultra,7
+Label,SPINNIN' RECORDS,12
+Label,Columbia/B1 Recordings,7
+Label,Trick,6
+Label,Atlantic Records UK,16
+Label,Prison Entertainment,4
+Label,Solid Grooves Records,5
+Label,Toolroom,21
+Label,"Sueños Globales, LLC",3
+Label,REALM Records,13
+Label,Ministry of Sound Recordings,10
+Label,PornoStar Records,8
+Label,Rose Avenue/Reprise,7
+Label,Symmetry Recordings,3
+Label,Musical Freedom,16
+Label,Space Motion Records,7
+Label,FFRR,4
+Label,AllPoints,2
+Label,Alula Tunes,1
+Label,Lost & Found,9
+Label,Tactical Records,22
+Label,Einmusika Recordings,2
+Label,,35
+Label,Black Book Records/Astralwerks,2
+Label,MASTERMIX RECORDS,4
+Label,Kontor Records,3
+Label,Casa Rossa,2
+Label,Form,1
+Label,Innervisions,4
+Label,Hood Politics Records,1
+Label,Nitron Music,1
+Label,1605,6
+Label,Beard Man,1
+Label,Cleveland City,1
+Label,SPINNIN' DEEP,7
+Label,Tasty Recordings,2
+Label,Vicious,4
+Label,ZYX,2
+Label,The Myth of NYX,4
+Label,Armada Subjekt,6
+Label,SBME Strategic Marketing Group,1
+Label,Glasgow Underground,9
+Label,Revival New York,5
+Label,D4 D4NCE,6
+Label,G*High,11
+Label,Hazardous Material,1
+Label,Hypnostate,2
+Label,Toolroom Longplayer,1
+Label,Catch & Release,12
+Label,South Of Saturn,8
+Label,Save The Nightlife,1
+Label,Dubz Audio,2
+Label,Sweat It Out,8
+Label,Armind (Armada),2
+Label,Nazca,1
+Label,Souped Up Records,4
+Label,TRANSA RECORDS,1
+Label,Siona Records,1
+Label,Yellow Productions,6
+Label,Filth on Acid,23
+Label,Afterlife Records,27
+Label,Heldeep Records,4
+Label,Different,2
+Label,Defected,31
+Label,Classic Music Company,3
+Label,Acetone,2
+Label,Critical Music,3
+Label,DNB Allstars Records,2
+Label,Crosstown Rebels,2
+Label,Toolroom Trax,3
+Label,Ego,2
+Label,NLV Records,1
+Label,Magic Island Recordings,2
+Label,Anjunadeep,6
+Label,Jungle Cakes,4
+Label,Embassy One,7
+Label,Playaz,1
+Label,Anjunabeats,3
+Label,Neksus Sound,1
+Label,BOX RED,1
+Label,Terms & Conditions,1
+Label,Life And Death,1
+Label,Vibrancy,1
+Label,Songspire Records,1
+Label,Arms & Legs,2
+Label,DARKMTTR Records,1
+Label,Wh0 Plays,1
+Label,Footwork,7
+Label,Pitch Records,1
+Label,Columbia (Sony),1
+Label,Selected.,4
+Label,PAWZ,3
+Label,Born On Road,3
+Label,Digital Soundboy,1
+Label,Spectrum (NL),3
+Label,Process Records,2
+Label,Tribal Kitchen,4
+Label,Hot Cakes,2
+Label,Highly Contrasting,1
+Label,Relief,2
+Label,Drumcode,27
+Label,Sola,2
+Label,Key Records,1
+Label,Odd One Out,3
+Label,Drum&BassArena,1
+Label,WYLD,1
+Label,Gossip,1
+Label,Lone Romantic,1
+Label,Elevate Records,2
+Label,Hurry Up Slowly,8
+Label,Heavy House Society,1
+Label,Moments,1
+Label,Universal Music Division Island Def Jam,2
+Label,Phisica,5
+Label,Universal-Island Records Ltd.,8
+Label,DFTD,3
+Label,STMPD RCRDS,2
+Label,Revealed Recordings,7
+Label,Nettwerk,2
+Label,Ministry of Sound (UK),2
+Label,UKF,3
+Label,Techne,1
+Label,Technique Recordings,1
+Label,Last Night On Earth,1
+Label,Night Service Only (NSO),3
+Label,Saved Records,3
+Label,10:22pm,1
+Label,Keinemusik,6
+Label,Another Rhythm,5
+Label,Scythe Recordings,3
+Label,Terminal M,2
+Label,Universal Music Ltda.,1
+Label,Cercle Records,3
+Label,mau5trap,5
+Label,Sink or Swim,3
+Label,Higher Ground (Mad Decent),1
+Label,Circus Recordings,1
+Label,Hot Creations,11
+Label,Virgin,7
+Label,Pampa Records,3
+Label,Sweet Tooth Recordings,1
+Label,Club Sweat,4
+Label,Medium Rare Recordings,2
+Label,There Was Jack,2
+Label,Criterio Music,7
+Label,Gudu Records,2
+Label,Cocoa,1
+Label,Black Hole Recordings,2
+Label,Running Clouds,1
+Label,Knee Deep In Sound,3
+Label,NO ART,4
+Label,NINL,4
+Label,KNTXT,6
+Label,33 Music,1
+Label,Terminal Underground,1
+Label,Abracadabra Music,8
+Label,Off The Grid,12
+Label,Soul Jazz Records,3
+Label,Pschent Music,3
+Label,Big Beat Records,4
+Label,Nice Life/Atlantic,5
+Label,Kangarooli Tracks/RCA Records,5
+Label,Café Del Mar Music,1
+Label,Bad Music Limited,1
+Label,MUSE,1
+Label,Hungarian Hot Wax,3
+Label,London Music Stream,1
+Label,CONTROVERSIA,1
+Label,Korsakov Music,2
+Label,Terracotta Records,1
+Label,Get Darker (2),2
+Label,NINETOZERO,5
+Label,Columbia Local,2
+Label,Magik Muzik,2
+Label,Disciple,1
+Label,Diynamic,3
+Label,Innellea,1
+Label,"Illegal M Ltd, Exclusively distributed by Virgin Music LAS",1
+Label,WE'RE HERE,1
+Label,Armada Music Albums,2
+Label,FCKNG SERIOUS,1
+Label,OVO,2
+Label,CircoLoco Records,1
+Label,Go Deeva Records,1
+Label,Republic Records,3
+Label,Homegrown.,1
+Label,Incorrect,1
+Label,MoBlack Records,1
+Label,XL Recordings,3
+Label,Late Checkout,6
+Label,Arti Farti,2
+Label,Astralwerks,5
+Label,SUPERCIRCUS,7
+Label,Nervous Records,3
+Label,Cecille,2
+Label,Altitude Records,2
+Label,HARD Recs,1
+Label,Atlantic Records,6
+Label,High Fashion Music,3
+Label,RAM Records,1
+Label,Malligator Productions / Because Music,2
+Label,Hottrax,2
+Label,Consequence Of Society Recordings,1
+Label,Madorasindahouse Records,2
+Label,Hellbent Records,2
+Label,Cuttin' Headz,3
+Label,Confession,2
+Label,SASS,2
+Label,1985 Music,2
+Label,Blast Records,1
+Label,UNLEASHED,1
+Label,Issues,1
+Label,Divided Souls,1
+Label,Dimension,1
+Label,Braslive Records,1
+Label,SAN PACHO / 2NIGHT,1
+Label,Mindshake Records,1
+Label,ICONYC,1
+Label,Axtone Records,3
+Label,Rumors,2
+Label,Parlophone UK,4
+Label,Tomorrowland Music,3
+Label,Panda Lab Records,4
+Label,Solid Grooves Raw,3
+Label,Inhouse,2
+Label,C4C Recordings,1
+Label,Say What?,3
+Label,Warner Records,1
+Label,Snatch! Records,3
+Label,Cocoon Recordings,1
+Label,There Is A Light,3
+Label,Onyx Recordings,1
+Label,La Pera Records,1
+Label,Invicta Audio,1
+Label,541,3
+Label,Southern Fried Records,1
+Label,KOOKOO RECORDS,2
+Label,Armada Music,2
+Label,Nero Bianco,1
+Label,Factory 93 Records,2
+Label,NUFORM,1
+Label,HIJINXX/Island,1
+Label,Future Rave,1
+Label,TBX,1
+Label,Strut,1
+Label,Reload Records,1
+Label,Crucast,1
+Label,LW Recordings,1
+Label,TECH IT DEEP,1
+Label,A$AP Worldwide/Polo Grounds Music/RCA Records,1
+Label,From The South,1
+Label,One Tribe Records,1
+Label,Peacefrog Records,1
+Label,DAYS like NIGHTS,1
+Label,Rekids,2
+Label,Titan Records,1
+Label,La Luna Records,1
+Label,R - Label Group,1
+Label,Systematic Recordings,1
+Label,For The Music,1
+Label,AFRODISE,1
+Artist,Cherish,10
+Artist,ACRAZE,10
+Artist,Soft Cell,3
+Artist,Elton John,9
+Artist,Dua Lipa,7
+Artist,Tita Lau,6
+Artist,James Hype,25
+Artist,Lee Foss,4
+Artist,Joshwa (UK),8
+Artist,Vintage Culture,11
+Artist,Chris Lorenzo,10
+Artist,Matt Sassari,9
+Artist,Paul Reid,4
+Artist,ARTBAT,10
+Artist,Byron Stingily,2
+Artist,Martin Ikin,6
+Artist,Skytech,5
+Artist,Neitan,5
+Artist,DJ Kuba,5
+Artist,Oden & Fatzo,6
+Artist,Ewan McVicar,2
+Artist,The Black Madonna,4
+Artist,Fred again..,15
+Artist,Softmal,4
+Artist,Nytron,4
+Artist,Eddy M,1
+Artist,Mark Knight,7
+Artist,Mason,2
+Artist,Skrillex,3
+Artist,J Balvin,3
+Artist,Ben Kim,5
+Artist,Faithless,3
+Artist,Maceo Plex,2
+Artist,House of Prayers,1
+Artist,RÜFÜS DU SOL,7
+Artist,David Guetta,7
+Artist,Break,4
+Artist,Biscits,5
+Artist,Space Motion,11
+Artist,Echoes,2
+Artist,John Summit,13
+Artist,N'to,2
+Artist,Monolink,5
+Artist,Carbon,1
+Artist,Lampe,1
+Artist,Volen Sentir,3
+Artist,Nari,5
+Artist,Stylus Robb,2
+Artist,D-Nox,2
+Artist,Stereo Underground,2
+Artist,,35
+Artist,Halo Varga,1
+Artist,Chris Lake,4
+Artist,NPC,2
+Artist,Luca Debonaire,5
+Artist,Jaded,3
+Artist,Gary Caos,2
+Artist,Popof,1
+Artist,Space 92,11
+Artist,Jimi Jules,1
+Artist,Brad Wood (UK),1
+Artist,Vincent Vaguer,1
+Artist,Majestic,2
+Artist,Boney M.,2
+Artist,UMEK,4
+Artist,Mark Broom,5
+Artist,Paul Bleasdale,1
+Artist,Mr Jay,1
+Artist,Piero Pirupa,7
+Artist,Disko Junkie,1
+Artist,Block & Crown,28
+Artist,Sgt Slick,1
+Artist,Tom Franke,1
+Artist,Ancalima,2
+Artist,Chapter & Verse,3
+Artist,Darius Syrossian,4
+Artist,Prospect Park,1
+Artist,Sofi Tukker,1
+Artist,Kevin McKay,1
+Artist,Dillon Nathaniel,1
+Artist,Ed Sheeran,1
+Artist,Stylo,5
+Artist,Iglesias,2
+Artist,Westend,11
+Artist,Richard Grey,12
+Artist,Robin S,1
+Artist,Dead As Disko,1
+Artist,DJ Hazard,1
+Artist,Timmo,2
+Artist,Shouse,1
+Artist,CID,17
+Artist,Öwnboss,7
+Artist,SEVEK,7
+Artist,Roland Clark,1
+Artist,Fancy Inc,1
+Artist,Hugel,11
+Artist,Mason Talbot,2
+Artist,Hedex,1
+Artist,Colin Hay,6
+Artist,Luude,7
+Artist,Neon Steve,1
+Artist,Marten Hørger,3
+Artist,Fergie,1
+Artist,Sandhog,1
+Artist,Voltage,1
+Artist,Aaron Sevilla,2
+Artist,Fernando Praga,2
+Artist,Babes on the Run,2
+Artist,Tryger,1
+Artist,Bob Sinclar,9
+Artist,Riton,1
+Artist,Nightcrawlers,1
+Artist,Mufasa & Hypeman,1
+Artist,Pete Tong,3
+Artist,Jules Buckley,3
+Artist,Eli Brown,13
+Artist,Argy,4
+Artist,Jude & Frank,2
+Artist,Twolate,3
+Artist,Dizzy,2
+Artist,Claptone,2
+Artist,Sonny Fodera,10
+Artist,SHELLS,5
+Artist,Andrea Oliva,2
+Artist,Honey Dijon,3
+Artist,Mike Dunn,2
+Artist,"Dave Giles II,",2
+Artist,Eddie Pay,4
+Artist,Teddy Killerz,1
+Artist,Astrotrax,2
+Artist,Shola Phillips,2
+Artist,Enei,2
+Artist,SIDEPIECE,3
+Artist,4K,1
+Artist,Jammez,1
+Artist,Frankey & Sandrino,1
+Artist,Crusy,4
+Artist,Malone,7
+Artist,PAUZA,2
+Artist,Mha Iri,2
+Artist,Anna Lunoe,1
+Artist,Genesis Owusu,1
+Artist,Roger Shah,2
+Artist,Sian Kosheen,2
+Artist,Ursula Rucker,1
+Artist,Simon Doty,1
+Artist,Deekline,2
+Artist,Queen Omega,1
+Artist,Manudigital,1
+Artist,WhoMadeWho,4
+Artist,Wade,6
+Artist,HI-LO,13
+Artist,Reinier Zonneveld,3
+Artist,ANNA,3
+Artist,T95,1
+Artist,Greg Downey,1
+Artist,Christian Burns,1
+Artist,Ben Nicky,1
+Artist,Annix,1
+Artist,MadRush MC,1
+Artist,Cuartero,1
+Artist,Wheats,1
+Artist,Chaney,1
+Artist,Hux & Thin,1
+Artist,Whitesquare,1
+Artist,DJ Susan,1
+Artist,Cloverdale,2
+Artist,Quivver,1
+Artist,Daniel Steinberg,1
+Artist,Classmatic,5
+Artist,S.P.Y,1
+Artist,Rowetta,1
+Artist,Bad Intentions,1
+Artist,Jay Lumen,7
+Artist,Ruze,1
+Artist,Tinlicker,2
+Artist,Mat Zo,1
+Artist,ARTY,1
+Artist,DONT BLINK,1
+Artist,Riva Starr,7
+Artist,Sananda Maitreya,1
+Artist,Love Regenerator,1
+Artist,Joel Corry,8
+Artist,Da Hool,4
+Artist,FISHER (OZ),8
+Artist,PAWSA,4
+Artist,Suku,1
+Artist,Selecta J-Man,2
+Artist,DJ Fresh,3
+Artist,Agents Of Time,1
+Artist,Ferreck Dawn,4
+Artist,Jem Cooke,2
+Artist,Kleu,1
+Artist,Monkey Safari,2
+Artist,Illyus & Barrientos,3
+Artist,Dombresky,4
+Artist,Sean Finn,2
+Artist,Innellea,3
+Artist,Phibes,6
+Artist,Qubiko,1
+Artist,High Contrast,1
+Artist,Green Velvet,4
+Artist,Bart Skils,4
+Artist,Weska,3
+Artist,Solardo,2
+Artist,Low Steppa,2
+Artist,Noizu,1
+Artist,Toman,1
+Artist,Lissat,11
+Artist,Yotto,5
+Artist,Laudic,1
+Artist,Noisia,1
+Artist,Firebeatz,2
+Artist,Dubdogz,2
+Artist,Purple Disco Machine,5
+Artist,Sophie and the Giants,1
+Artist,Late Replies,1
+Artist,Roy Rosenfeld,1
+Artist,Stev Dive,1
+Artist,Unglued,1
+Artist,Johnny Jewel,1
+Artist,Glume,1
+Artist,Document One,1
+Artist,A Little Sound,1
+Artist,Sebastian Rivero,2
+Artist,Calussa,6
+Artist,DJOKO,1
+Artist,Kolter,1
+Artist,Astrix,1
+Artist,Guy J,2
+Artist,Kungs,2
+Artist,Kristin Velvet,1
+Artist,BadWolf,5
+Artist,Soff,5
+Artist,Miggy Dela Rosa,8
+Artist,Shermanology,5
+Artist,PAX,3
+Artist,George Smeddles,2
+Artist,Zedd,1
+Artist,Martin Garrix,2
+Artist,Jack Back,2
+Artist,Endor,1
+Artist,Dillon Francis,2
+Artist,VINNE,2
+Artist,Mees Salomé,1
+Artist,Celine Cairo,1
+Artist,Anyma (ofc),10
+Artist,Delerium,2
+Artist,Flera,2
+Artist,Dot N Life,2
+Artist,Basement Jaxx,3
+Artist,Dino Lenny,1
+Artist,DJ Guv,1
+Artist,S.A.M.,2
+Artist,Sarah Ikumu,2
+Artist,Storm,1
+Artist,Jam El Mar,1
+Artist,Rebuke,2
+Artist,Tantrum Desire,1
+Artist,Saison,2
+Artist,Sasha,1
+Artist,Photek,1
+Artist,Truth x Lies,1
+Artist,Pimpo Gama,1
+Artist,Spencer Parker,1
+Artist,DJ Funk,1
+Artist,Gettoblaster,1
+Artist,Sentinel,1
+Artist,Alesso,1
+Artist,&ME,1
+Artist,Rampa,6
+Artist,Adam Port,3
+Artist,"Keinemusik,",1
+Artist,CASSIMM,2
+Artist,Mark Dekoda,3
+Artist,Sosa UK,3
+Artist,Eli Nissan,1
+Artist,A.D.H.S.,1
+Artist,Liu,1
+Artist,Colyn,3
+Artist,Kaskade,4
+Artist,deadmau5,5
+Artist,Kx5,4
+Artist,NightFunk,1
+Artist,Ranger Trucco,1
+Artist,Adam Beyer,2
+Artist,Diplo,1
+Artist,Busta Rhymes,1
+Artist,Mele,3
+Artist,Notelle,1
+Artist,Jansons,1
+Artist,Nfasis,2
+Artist,DJ Koze,3
+Artist,Sophia Kennedy,3
+Artist,Juan Hansen,2
+Artist,Øostil,2
+Artist,Dominator,1
+Artist,Nu Elementz,1
+Artist,Lilly Palmer,4
+Artist,Kaiserdisco,1
+Artist,Goodboys,1
+Artist,Massano,3
+Artist,Babert,3
+Artist,Mell Hall,3
+Artist,LO'99,2
+Artist,Taiki Nulight,2
+Artist,Earth n Days,2
+Artist,Rafa Villalba,1
+Artist,paskman,1
+Artist,Peggy Gou,2
+Artist,Disfreq,2
+Artist,Jamie Jones,10
+Artist,Wehbba,2
+Artist,Chicks Luv Us,1
+Artist,Sied van Riel,2
+Artist,Hot Since 82,3
+Artist,ANOTR,4
+Artist,Alle Farben,1
+Artist,Keanu Silva,1
+Artist,Hardwell,3
+Artist,Solomun,4
+Artist,Isolation Berlin,1
+Artist,BYOR,4
+Artist,Imanbek,4
+Artist,Charlotte de Witte,5
+Artist,Crazibiza,1
+Artist,Andrea Monta,1
+Artist,Karl8,1
+Artist,Adam Ten,2
+Artist,Mita Gami,2
+Artist,Tom De Neef,1
+Artist,Lazarusman,1
+Artist,Julian Jordan,1
+Artist,Mochakk,3
+Artist,San Pacho,2
+Artist,Blond:ish,1
+Artist,Archila,1
+Artist,Chris Avantgarde,8
+Artist,B Beat Girls,3
+Artist,Alan Dixon,2
+Artist,Sebjak,3
+Artist,Fahlberg,3
+Artist,Anti Up,4
+Artist,Lizzo,5
+Artist,Cheesecake Boys,3
+Artist,Betty Love,3
+Artist,Will K,4
+Artist,Nile Rodgers,5
+Artist,Oliver Heldens,5
+Artist,House Gospel Choir,5
+Artist,Dilby,3
+Artist,Adriatique,1
+Artist,Delhia De France,1
+Artist,Marino Canal,1
+Artist,Watch the Ride,1
+Artist,Nia Archives,2
+Artist,Cloonee,3
+Artist,Amonita,2
+Artist,Makebo,2
+Artist,Raffa FL,3
+Artist,Gabsy,3
+Artist,Mòo & Jo,3
+Artist,Armin van Buuren,1
+Artist,Chicane,1
+Artist,AVIRA,1
+Artist,DLR,2
+Artist,Shaggy,1
+Artist,Embody,1
+Artist,Moss Kena,1
+Artist,Tenchi,1
+Artist,Turno,1
+Artist,Loco Miguel,1
+Artist,Manda Moor,2
+Artist,Matroda,2
+Artist,Bleu Clair,1
+Artist,MC Spyda,1
+Artist,Acuna,1
+Artist,Dennis Cruz,1
+Artist,DJ Rush,1
+Artist,Franco BA,1
+Artist,Clover Ray,3
+Artist,Sam Dexter,3
+Artist,Mallin,3
+Artist,Orbital,1
+Artist,Deeper Purpose,4
+Artist,VLTRA (IT),1
+Artist,Ramona Renea,1
+Artist,Push,1
+Artist,Joyhauser,2
+Artist,Alok,4
+Artist,Woo York,2
+Artist,SNBRN,1
+Artist,FREAK ON,1
+Artist,Franky Wah,1
+Artist,AR/CO,1
+Artist,Dajae,2
+Artist,Mihalis Safras,1
+Artist,Total Science,2
+Artist,Enrico Sangiuliano,5
+Artist,Kaleta,2
+Artist,Bosq,2
+Artist,Michael Bibi,1
+Artist,Sub Focus,3
+Artist,Toure Kunda,2
+Artist,Tiesto,7
+Artist,Ray Volpe,1
+Artist,Malandra Jr.,2
+Artist,Alignment,1
+Artist,Sammy Porter,1
+Artist,Latmun,2
+Artist,Malaa,1
+Artist,Pablo Fierro,1
+Artist,Tony De Vit,1
+Artist,Boris Brejcha,1
+Artist,Drake,2
+Artist,Skream,1
+Artist,Jackmaster,1
+Artist,GW Harrison,1
+Artist,Simone Vitullo,1
+Artist,Seraphiel,1
+Artist,Ed Solo,1
+Artist,Swedish House Mafia,8
+Artist,The Weeknd,3
+Artist,Rossi.,1
+Artist,Gene Farris,1
+Artist,GAWP,1
+Artist,Stevo Atambire,1
+Artist,Ahmed Spins,1
+Artist,Tal Fussman,1
+Artist,Mattafix,1
+Artist,Tiger Stripes,1
+Artist,Bryan Softwell,1
+Artist,HP Vince,1
+Artist,Rune RK,2
+Artist,Cumbiafrica,4
+Artist,Jen Payne,2
+Artist,Mathieu Ruz,2
+Artist,CamelPhat,4
+Artist,Mathame,2
+Artist,Lorna,2
+Artist,Jenn Morel,2
+Artist,Madison Avenue,3
+Artist,Maickel Telussa,6
+Artist,Ravid,2
+Artist,Stevie Appleton,2
+Artist,GUZ (NL),2
+Artist,Butch,4
+Artist,Joni,2
+Artist,Kyle Walker,2
+Artist,Shall Ocin,1
+Artist,Braev,1
+Artist,The Upbeats,1
+Artist,Ghostbusterz,2
+Artist,Future,5
+Artist,Wax Motif,2
+Artist,Charli Xcx,3
+Artist,Kenny Dope,3
+Artist,Ella Eyre,3
+Artist,Never Dull,3
+Artist,AMEME,2
+Artist,A.M.C,2
+Artist,Junk Mail,1
+Artist,Cerrone,2
+Artist,Max Dean,2
+Artist,Cristoph,1
+Artist,Ross Quinn,1
+Artist,Black V Neck,2
+Artist,Topic,1
+Artist,A7S,1
+Artist,Victor Ruiz,1
+Artist,Mau P,4
+Artist,David Amo,4
+Artist,Julio Navas,4
+Artist,Gustavo Bravetti,4
+Artist,Awen,2
+Artist,Caiiro,2
+Artist,Armand Van Helden,4
+Artist,The Martinez Brothers,2
+Artist,Rema,2
+Artist,GORDO (US),3
+Artist,Layton Giordani,4
+Artist,Brandon,2
+Artist,Kurd Maverick,1
+Artist,Siege,1
+Artist,Alix Perez,2
+Artist,Trigga,2
+Artist,Bou,3
+Artist,Volaris,1
+Artist,Mila Falls,1
+Artist,Volac,3
+Artist,Trace (UZ),1
+Artist,Pato's Groove,1
+Artist,Kanine,1
+Artist,Izzy Bizu,1
+Artist,Jerome Isma-Ae,1
+Artist,Weekend Heroes,1
+Artist,MORTEN,2
+Artist,ENNE (BR),1
+Artist,Crewcutz,1
+Artist,KinAhau,1
+Artist,T-Man,1
+Artist,Dimension,2
+Artist,Zeca Veloso,1
+Artist,Sebastian Kamae,1
+Artist,Supermode,3
+Artist,Kevin de Vries,4
+Artist,Fisher,3
+Artist,MERYLL,3
+Artist,Guy Gerber,2
+Artist,Albertina,2
+Artist,Bebe Rexha,3
+Artist,Jamie Roy,1
+Artist,Hannah Wants,3
+Artist,Clementine Douglas,3
+Artist,Max Styler,2
+Artist,Walker & Royce,2
+Artist,Nala,2
+Artist,Silver Panda,4
+Artist,Keinemusik,3
+Artist,chuala,3
+Artist,OFFAIAH,2
+Artist,Beltran (BR),3
+Artist,Todd Terry,4
+Artist,Dillon Hart Francis,3
+Artist,CHRSTPHR,1
+Artist,Mc Th,1
+Artist,Ramon Tapia,3
+Artist,Linkin Park,1
+Artist,Star B,4
+Artist,Anthiago,1
+Artist,JNT,3
+Artist,Sven Vath,1
+Artist,R3HAB,1
+Artist,Ryan Arnold,1
+Artist,N.F.I,1
+Artist,Luan Trombin,1
+Artist,MC GQ,1
+Artist,Pickle,1
+Artist,Danny Howard,1
+Artist,"Gorgon City,",1
+Artist,BIJOU,2
+Artist,Hoax,1
+Artist,Andruss,3
+Artist,Josh Butler,1
+Artist,Shiba San,1
+Artist,Nautik (US),1
+Artist,Tensnake,3
+Artist,Nicky Elisabeth,1
+Artist,Tektonauts,1
+Artist,Armandd G,1
+Artist,Bodeler,1
+Artist,Ben Sterling,1
+Artist,Indeep,2
+Artist,Black Eyed Peas,2
+Artist,Gorgon City,2
+Artist,DJ Deeon,2
+Artist,Something Good,2
+Artist,Sam Smith,2
+Artist,Kim Petras,2
+Artist,Mr. V,1
+Artist,Vitor Vinter,2
+Artist,Sudden Heat,2
+Artist,Maddix,2
+Artist,Britney Spears,2
+Artist,Idris Elba,1
+Artist,Sebastien Leger,2
+Artist,The Prodigy,2
+Artist,Wuki,2
+Artist,Kim English,1
+Artist,Schak,1
+Artist,Friend Within,1
+Artist,MONSS,1
+Artist,Prok & Fitch,2
+Artist,Ivory (IT),2
+Artist,Paluma,1
+Artist,Catz 'n Dogz,1
+Artist,Myst Milano,1
+Artist,Southstar,1
+Artist,Bootie Brown,1
+Artist,Tame Impala,1
+Artist,Gorillaz,1
+Artist,Aatig,1
+Artist,Hannah Boleyn,1
+Artist,Merk & Kremont,1
+Artist,Lirico En La Casa,1
+Artist,Umberto Pagliaroli,1
+Artist,El Apache Ness,1
+Artist,Zafrir,1
+Artist,Fatboi,1
+Artist,Cajmere,1
+Artist,Bruno Furlan,1
+Artist,KH,1
+Artist,The YellowHeads,1
+Artist,HLGRMS,1
+Artist,TOBEHONEST,1
+Artist,Sub Zero,1
+Artist,Original Sin,1
+Artist,Abel Balder,1
+Artist,Grum,1
+Artist,Bob Musella,1
+Artist,TECH IT DEEP,1
+Artist,Skepta,1
+Artist,A$AP ROCKY,1
+Artist,Calyx,1
+Artist,Luciano,1
+Artist,Carloh,1
+Artist,Bastidas,1
+Artist,Carlos Corté$,1
+Artist,Darmon,1
+Artist,Baron (FR),1
+Artist,Planetary Assault Systems,1
+Artist,Eelke Kleijn,1
+Artist,Notre Dame,1
+Artist,Rubber People,1
+Artist,Moreno Pezzolato,1
+Artist,Nick Fiorucci,1
+Artist,Kyle Watson,1
+Artist,Robin Schulz,1
+Artist,Oliver Tree,1
+Artist,Roxe,1
+Artist,Franck,1
+Artist,Return of the Jaded,1
+Artist,Karsten Sollors,1
+Artist,REBEL YOUTH,1
+Artist,Feid,1
+Artist,Charles D (USA),1
