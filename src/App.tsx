@@ -2,11 +2,15 @@ import Graph from "./graph";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { DataSeries } from "./types";
+import CategorySelector from "./CategorySelector";
 
 const App: React.FC = () => {
   const fields = ["House", "Tech House", "Techno"];
   const [selectedFields, setSelectedfields] = useState<string[]>([]);
   const [data, setData] = useState<DataSeries[]>([]);
+  const [currentCategory, setCurrentCategory] = useState<string>("");
+
+  const categories = ["Genres", "Subgenres", "Labels", "Artists"];
 
   useEffect(() => {
     // Fetch the genre data when the component mounts
@@ -37,9 +41,27 @@ const App: React.FC = () => {
     }
   };
 
+  const handleCategoryChange = (category: string) => {
+    setCurrentCategory(category);
+  };
+
+  console.log("category:", currentCategory);
+
   return (
     <>
       <h1 className="mb-10">Beatport fields</h1>
+      <div className="flex flex-row items-center justify-center">
+        {categories.map((category) => {
+          return (
+            <CategorySelector
+              key={category}
+              category={category}
+              currentCategory={currentCategory}
+              handleCategoryChange={handleCategoryChange}
+            />
+          );
+        })}
+      </div>
       <div>
         {fields.map((field) => (
           <label key={field} className="no-select">
