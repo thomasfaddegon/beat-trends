@@ -39,7 +39,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <h1>Beatport fields</h1>
+      <h1 className="mb-10">Beatport fields</h1>
       <div>
         {fields.map((field) => (
           <label key={field} className="no-select">
