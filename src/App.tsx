@@ -49,17 +49,19 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <div className="border-2 border-white p-9">
-        <h1 className="mb-10">Beatport Popularity</h1>
-        <div className="flex flex-row items-center justify-center">
+      <h1 className="mb-10">Beatport Popularity</h1>
+      <div className="border-2 border-white ">
+        <div className="flex flex-row items-center justify-center w-full ">
           {categories.map((category) => {
             return (
-              <CategorySelector
-                key={category}
-                category={category}
-                currentCategory={currentCategory}
-                handleCategoryChange={handleCategoryChange}
-              />
+              <div className="w-1/4 h-full">
+                <CategorySelector
+                  key={category}
+                  category={category}
+                  currentCategory={currentCategory}
+                  handleCategoryChange={handleCategoryChange}
+                />
+              </div>
             );
           })}
         </div>
@@ -75,7 +77,9 @@ const App: React.FC = () => {
             </label>
           ))}
         </div>
-        <Graph data={data} />
+        <div className="p-8">
+          <Graph data={data} />
+        </div>
       </div>
     </div>
   );

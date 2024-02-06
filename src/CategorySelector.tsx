@@ -13,12 +13,12 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({
 }) => {
   const active =
     currentCategory === category
-      ? "border-t-2 border-l-2 border-r-2 border-white bg-purple-500"
-      : "border-2 border-white";
+      ? "border-2 border-white bg-purple-600 hover:bg-purple-500 border-b-purple-600 font-bold text-white"
+      : "border-2 border-white hover:bg-white hover:text-black";
 
   return (
     <div
-      className={`${active} px-2 py-2 cursor-pointer hover:bg-white hover:text-black`}
+      className={`${active} px-2 py-2 cursor-pointer select-none`}
       onClick={() => handleCategoryChange(category)}
     >
       {category}
