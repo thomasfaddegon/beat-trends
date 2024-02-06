@@ -1,24 +1,40 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import { DataPoint, GraphProps } from "./types";
 
 const Graph: React.FC<GraphProps> = ({ data }) => {
   const svgRef = useRef<SVGSVGElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  console.log("Data:", data);
+  // Function to update dimensions based on the window's size
+  const updateDimensions = () => {
+    const width = window.innerWidth - 150; // Adjust 100 for margins or other offsets
+    const height = window.innerHeight - 400; // Adjust 150 for margins or other offsets
+
+    console.log("width:", width);
+    console.log("height:", height);
+    setDimensions({ width, height });
+  };
 
   useEffect(() => {
-    if (!svgRef.current) return;
+    updateDimensions(); // Initial dimension setting
+    window.addEventListener("resize", updateDimensions); // Adjust dimensions on resize
 
-    // Clear the SVG to prevent duplication
-    d3.select(svgRef.current).selectAll("*").remove();
+    return () => {
+      window.removeEventListener("resize", updateDimensions); // Cleanup on component unmount
+    };
+  }, []);
 
-    // Defines margin, width, and height values for a D3.js visualization.
-    const margin = { top: 20, right: 20, bottom: 30, left: 50 };
-    const width = 960 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
+  useEffect(() => {
+    if (!svgRef.current || dimensions.width === 0 || dimensions.height === 0)
+      return;
 
-    // Selects an SVG element, sets its width and height, appends a group element, and applies a translation transformation to create a D3.js visualization.
+    d3.select(svgRef.current).selectAll("*").remove(); // Clear the SVG to prevent duplication
+
+    const margin = { top: 30, right: 20, bottom: 30, left: 50 };
+    const width = dimensions.width - margin.left - margin.right;
+    const height = dimensions.height - margin.top - margin.bottom;
+
     const svg = d3
       .select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
@@ -71,7 +87,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
         .attr("stroke-width", 1.5)
         .attr("d", line);
     });
-  }, [data]);
+  }, [data, dimensions]);
 
   return <svg ref={svgRef}></svg>;
 };

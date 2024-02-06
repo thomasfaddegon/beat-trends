@@ -48,34 +48,36 @@ const App: React.FC = () => {
   console.log("category:", currentCategory);
 
   return (
-    <>
-      <h1 className="mb-10">Beatport fields</h1>
-      <div className="flex flex-row items-center justify-center">
-        {categories.map((category) => {
-          return (
-            <CategorySelector
-              key={category}
-              category={category}
-              currentCategory={currentCategory}
-              handleCategoryChange={handleCategoryChange}
-            />
-          );
-        })}
+    <div>
+      <div className="border-2 border-white p-9">
+        <h1 className="mb-10">Beatport Popularity</h1>
+        <div className="flex flex-row items-center justify-center">
+          {categories.map((category) => {
+            return (
+              <CategorySelector
+                key={category}
+                category={category}
+                currentCategory={currentCategory}
+                handleCategoryChange={handleCategoryChange}
+              />
+            );
+          })}
+        </div>
+        <div>
+          {fields.map((field) => (
+            <label key={field} className="no-select">
+              <input
+                type="checkbox"
+                value={field}
+                onChange={(e) => handleFieldChange(field, e.target.checked)}
+              />
+              {field}
+            </label>
+          ))}
+        </div>
+        <Graph data={data} />
       </div>
-      <div>
-        {fields.map((field) => (
-          <label key={field} className="no-select">
-            <input
-              type="checkbox"
-              value={field}
-              onChange={(e) => handleFieldChange(field, e.target.checked)}
-            />
-            {field}
-          </label>
-        ))}
-      </div>
-      <Graph data={data} />
-    </>
+    </div>
   );
 };
 
