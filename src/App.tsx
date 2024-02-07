@@ -68,24 +68,32 @@ const App: React.FC = () => {
             </div>
           ))}
         </div>
-        <div>
-          {currentCategory &&
-            categoryDataMap[
-              currentCategory as keyof typeof categoryDataMap
-            ].map((field, index) => (
-              <>
-                <input
-                  type="checkbox"
-                  key={index}
-                  id={`checkbox-${index}`}
-                  name={field}
-                  value={field}
-                  checked={selectedFields.includes(field)}
-                  onChange={() => handleFieldChange(field)}
-                />
-                <label htmlFor={`checkbox-${index}`}>{field}</label>
-              </>
-            ))}
+        <div className="py-6 px-12">
+          <div className="flex flex-row flex-wrap gap-1 justify-center">
+            {currentCategory &&
+              categoryDataMap[
+                currentCategory as keyof typeof categoryDataMap
+              ].map((field, index) => (
+                <div className="flex flex-row px-2 cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    key={index}
+                    id={`checkbox-${index}`}
+                    name={field}
+                    value={field}
+                    checked={selectedFields.includes(field)}
+                    onChange={() => handleFieldChange(field)}
+                    className="cursor-pointer"
+                  />
+                  <label
+                    className="pl-1 cursor-pointer"
+                    htmlFor={`checkbox-${index}`}
+                  >
+                    {field}
+                  </label>
+                </div>
+              ))}
+          </div>
         </div>
         <div className="p-8">
           <Graph data={data} />

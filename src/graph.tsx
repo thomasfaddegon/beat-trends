@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import { DataPoint, GraphProps } from "./types";
+import { colors } from "./colors";
 
 const Graph: React.FC<GraphProps> = ({ data }) => {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -78,12 +79,12 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
       .y((d) => y(d.value));
 
     // Appends a path element for each series to the SVG container, associates it with the provided data, and sets attributes to define its appearance (color, thickness) and the "d" attribute to define the path's shape based on the "line" generator function.
-    data.forEach((series) => {
+    data.forEach((series, index) => {
       svg
         .append("path")
         .datum(series.data)
         .attr("fill", "none")
-        .attr("stroke", "blue")
+        .attr("stroke", colors[index])
         .attr("stroke-width", 1.5)
         .attr("d", line);
     });
