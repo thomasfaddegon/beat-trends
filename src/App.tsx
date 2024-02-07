@@ -1,43 +1,50 @@
+import React, { useEffect, useState } from "react";
 import Graph from "./graph";
 import "./App.css";
-import { useEffect, useState } from "react";
 import { DataSeries } from "./types";
 import CategorySelector from "./CategorySelector";
+import { genres, subGenres, labels, artists } from "./fields";
 
 const App: React.FC = () => {
-  const fields = ["House", "Tech House", "Techno"];
-  const [selectedFields, setSelectedfields] = useState<string[]>([]);
+  const [selectedFields, setSelectedFields] = useState<string[]>([]);
   const [data, setData] = useState<DataSeries[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string>("");
 
   const categories = ["Genres", "Subgenres", "Labels", "Artists"];
 
+  // Object to map category names to their respective data arrays
+  const categoryDataMap = {
+    Genres: genres,
+    Subgenres: subGenres,
+    Labels: labels,
+    Artists: artists,
+  };
+
   useEffect(() => {
-    // Fetch the genre data when the component mounts
-    fetch("/genres.json")
+    fetch("/allData.json")
       .then((response) => response.json())
-      .then((rawData: { [genre: string]: { [year: string]: number } }) => {
-        // Transform rawData into DataSeries[]
+      .then((allData) => {
+        const categoryData = allData[currentCategory] || {};
+        // Loop through the selected fields, filter to make sure the fields exist in allData, and create a new array of DataSeries objects
         const transformedData: DataSeries[] = selectedFields
-          .filter((field) => rawData.hasOwnProperty(field))
+          .filter((field) => categoryData.hasOwnProperty(field))
           .map((field) => ({
             name: field,
-            data: Object.entries(rawData[field]).map(([year, value]) => ({
+            data: Object.entries(categoryData[field]).map(([year, value]) => ({
               year: parseInt(year),
-              value,
+              value: Number(value),
             })),
           }));
-
         setData(transformedData);
       })
-      .catch((error) => console.error("Error fetching genre data:", error));
-  }, [selectedFields]);
+      .catch((error) => console.error("Error fetching data:", error));
+  }, [selectedFields, currentCategory]);
 
-  const handleFieldChange = (field: string, isChecked: boolean) => {
-    if (isChecked) {
-      setSelectedfields((prevFields) => [...prevFields, field]);
+  const handleFieldChange = (field: string) => {
+    if (!selectedFields.includes(field)) {
+      setSelectedFields((prevFields) => [...prevFields, field]);
     } else {
-      setSelectedfields((prevFields) => prevFields.filter((g) => g !== field));
+      setSelectedFields((prevFields) => prevFields.filter((f) => f !== field));
     }
   };
 
@@ -45,37 +52,40 @@ const App: React.FC = () => {
     setCurrentCategory(category);
   };
 
-  console.log("category:", currentCategory);
-
   return (
     <div>
       <h1 className="mb-10">Beatport Popularity</h1>
-      <div className="border-2 border-white ">
-        <div className="flex flex-row items-center justify-center w-full ">
-          {categories.map((category) => {
-            return (
-              <div className="w-1/4 h-full">
-                <CategorySelector
-                  key={category}
-                  category={category}
-                  currentCategory={currentCategory}
-                  handleCategoryChange={handleCategoryChange}
-                />
-              </div>
-            );
-          })}
+      <div className="border-2 border-white">
+        <div className="flex flex-row items-center justify-center w-full">
+          {categories.map((category) => (
+            <div className="w-1/4">
+              <CategorySelector
+                key={category}
+                category={category}
+                currentCategory={currentCategory}
+                handleCategoryChange={handleCategoryChange}
+              />
+            </div>
+          ))}
         </div>
         <div>
-          {fields.map((field) => (
-            <label key={field} className="no-select">
-              <input
-                type="checkbox"
-                value={field}
-                onChange={(e) => handleFieldChange(field, e.target.checked)}
-              />
-              {field}
-            </label>
-          ))}
+          {currentCategory &&
+            categoryDataMap[
+              currentCategory as keyof typeof categoryDataMap
+            ].map((field, index) => (
+              <>
+                <input
+                  type="checkbox"
+                  key={index}
+                  id={`checkbox-${index}`}
+                  name={field}
+                  value={field}
+                  checked={selectedFields.includes(field)}
+                  onChange={() => handleFieldChange(field)}
+                />
+                <label htmlFor={`checkbox-${index}`}>{field}</label>
+              </>
+            ))}
         </div>
         <div className="p-8">
           <Graph data={data} />

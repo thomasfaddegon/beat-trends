@@ -18,7 +18,7 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({
 
   return (
     <div
-      className={`${active} px-2 py-2 cursor-pointer select-none`}
+      className={`${active} px-2 py-5 cursor-pointer select-none`}
       onClick={() => handleCategoryChange(category)}
     >
       {category}

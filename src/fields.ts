@@ -1,4 +1,4 @@
-const genres = [
+export const genres = [
   "Drum & Bass",
   "EDM",
   "House",
@@ -9,7 +9,7 @@ const genres = [
   "Trance",
 ];
 
-const subGenres = [
+export const subGenres = [
   "Afro House",
   "Bass / Club",
   "Bass House",
@@ -46,7 +46,7 @@ const subGenres = [
   "UK Garage / Bassline",
 ];
 
-const artists = [
+export const artists = [
   "&ME",
   "Adam Beyer",
   "Anjunadeep",
@@ -108,7 +108,7 @@ const artists = [
   "W&W",
 ];
 
-const labels = [
+export const labels = [
   "1605",
   "8Bit",
   "Afterlife Records",
