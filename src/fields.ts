@@ -137,6 +137,7 @@ export const labels = [
   "Protocol Recordings",
   "Repopulate Mars",
   "Relief",
+  "Revealed Recordings",
   "Revealed Recordings (back catalog)",
   "Snatch! Records",
   "Sola",

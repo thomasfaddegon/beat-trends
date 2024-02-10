@@ -4,16 +4,21 @@ import { DataPoint, GraphProps } from "./types";
 import { colors } from "./colors";
 
 const Graph: React.FC<GraphProps> = ({ data }) => {
+  console.log("data:", data);
+
   const svgRef = useRef<SVGSVGElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const colorMap = data.map((series, index) => {
+    return { [series.name]: colors[index] } as { [key: string]: string };
+  });
 
-  // Function to update dimensions based on the window's size
+  console.log(colorMap);
+
+  // Update dimensions based on the window's size
   const updateDimensions = () => {
-    const width = window.innerWidth - 150; // Adjust 100 for margins or other offsets
-    const height = window.innerHeight - 400; // Adjust 150 for margins or other offsets
+    const width = window.innerWidth - 150;
+    const height = window.innerHeight - 400;
 
-    console.log("width:", width);
-    console.log("height:", height);
     setDimensions({ width, height });
   };
 
@@ -80,17 +85,56 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
 
     // Appends a path element for each series to the SVG container, associates it with the provided data, and sets attributes to define its appearance (color, thickness) and the "d" attribute to define the path's shape based on the "line" generator function.
     data.forEach((series, index) => {
-      svg
+      const path = svg
         .append("path")
         .datum(series.data)
         .attr("fill", "none")
         .attr("stroke", colors[index])
-        .attr("stroke-width", 1.5)
+        .attr("stroke-width", 7)
         .attr("d", line);
+
+      // Add hover event listeners using D3.js
+      path
+        .on("mouseover", function () {
+          d3.select(this)
+            .attr("stroke-width", 11)
+            .style("cursor", "pointer")
+            .style("filter", "drop-shadow(0 0 10px white)");
+        })
+        .on("mouseout", function () {
+          d3.select(this)
+            .transition()
+            .attr("stroke-width", 7) // Reset stroke width on mouse out
+            .style("filter", null); // Remove the drop shadow on mouse out
+        });
     });
   }, [data, dimensions]);
 
-  return <svg ref={svgRef}></svg>;
+  return (
+    <div>
+      <div className="flex flex-row flex-wrap justify-center gap-3">
+        {data.map((series, index) => {
+          const color = colors[index];
+          const style = {
+            backgroundColor: color,
+            width: "20px", // Specify width and height so the div is visible
+            height: "20px",
+          };
+
+          return (
+            <div
+              key={series.name}
+              className="flex flex-row items-center gap-2 my-2"
+            >
+              <div style={style} className="h-4 w-4"></div>
+              <span className="text-white">{series.name}</span>
+            </div>
+          );
+        })}
+      </div>
+      <svg ref={svgRef} className="w-full"></svg>
+    </div>
+  );
 };
 
 export default Graph;
