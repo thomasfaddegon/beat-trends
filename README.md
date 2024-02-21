@@ -34,3 +34,6 @@ NOTES
 Used React for the legend since it felt easier than adding a legend through D3.
 
 Added hover evnet listeners using d3 that increase stroke width.
+
+Add invisible wider path
+Another approach is to add an invisible, wider version of the line behind the visible one, serving as the target for hover interactions. This invisible line can have a much wider stroke-width but be fully transparent or match the background, making it easier to hover over without visually altering the graph.

@@ -8,7 +8,7 @@ import { genres, subGenres, labels, artists } from "./fields";
 const App: React.FC = () => {
   const [selectedFields, setSelectedFields] = useState<string[]>([]);
   const [data, setData] = useState<DataSeries[]>([]);
-  const [currentCategory, setCurrentCategory] = useState<string>("");
+  const [currentCategory, setCurrentCategory] = useState<string>("Genres");
 
   const categories = ["Genres", "Subgenres", "Labels", "Artists"];
 
@@ -55,7 +55,7 @@ const App: React.FC = () => {
   return (
     <div>
       <h1 className="mb-10">Beatport Popularity</h1>
-      <div className="border-2 border-white">
+      <div className="border-2 border-white w-full max-w-7xl bg-slate-900">
         <div className="flex flex-row items-center justify-center w-full">
           {categories.map((category) => (
             <div className="w-1/4">
