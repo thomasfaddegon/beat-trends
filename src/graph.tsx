@@ -46,7 +46,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
 
     d3.select(svgRef.current).selectAll("*").remove(); // Clear the SVG to prevent duplication
 
-    const margin = { top: 30, right: 20, bottom: 30, left: 50 };
+    const margin = { top: 30, right: 50, bottom: 30, left: 50 };
     const width = dimensions.width - margin.left - margin.right;
     const height = dimensions.height - margin.top - margin.bottom;
 
@@ -129,8 +129,8 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
   }, [data, dimensions]);
 
   return (
-    <div ref={parentRef}>
-      <div className="flex flex-row flex-wrap justify-center gap-3">
+    <div className="w-full" ref={parentRef}>
+      <div className="flex flex-row flex-wrap w-full justify-center gap-3">
         {data.map((series, index) => {
           const color = colors[index];
           const style = {
