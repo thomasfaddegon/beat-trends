@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Graph from "./graph";
+import Graph from "./Graph";
 import "./App.css";
 import { DataSeries } from "./types";
 import CategorySelector from "./CategorySelector";
@@ -98,7 +98,18 @@ const App: React.FC = () => {
           </div>
           <div className="p-8 w-full" style={{ width: "100%" }}>
             <Graph data={data} />
-          </div>
+          </div>{" "}
+          <div
+            id="tooltip"
+            style={{
+              position: "absolute",
+              opacity: 0,
+              background: "#fff",
+              border: "1px solid #000",
+              padding: "10px",
+              pointerEvents: "none",
+            }}
+          ></div>
         </div>
       </div>
     </div>

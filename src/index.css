@@ -51,6 +51,11 @@ button:hover {
   border-color: #646cff;
 }
 
+.interactive-path {
+  cursor: pointer;
+  transition: color 0.25s;
+}
+
 .no-select {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */

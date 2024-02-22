@@ -99,14 +99,22 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
         .append("path")
         .datum(series.data)
         .attr("fill", "none")
-        .attr("stroke", "transparent") // Make the stroke transparent
+        .attr("class", "interactive-path")
+        .attr("stroke", "transparent")
         .attr("stroke-width", 40) // Increase the stroke-width for a larger hover area
         .attr("d", line)
-        .on("mouseover", function () {
+        .on("mouseover", function (event, d) {
           // Apply hover effects to the visible path
           d3.select(`.line-visible-${index}`)
             .attr("stroke-width", 11)
+            .style("cursor", "pointer")
             .style("filter", "drop-shadow(0 0 10px white)");
+          // Show tooltip
+          d3.select("#tooltip")
+            .style("opacity", 1)
+            .html(`Tooltip content for series ${index}`) // Customize this content
+            .style("left", event.pageX + 10 + "px") // Position the tooltip
+            .style("top", event.pageY + 10 + "px");
         })
         .on("mouseout", function () {
           // Reset hover effects on the visible path
@@ -114,17 +122,20 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
             .transition()
             .attr("stroke-width", 7)
             .style("filter", null);
+          // Hide tooltip
+          d3.select("#tooltip").style("opacity", 0);
         });
 
       // Append the actual visible path
-      const visiblePath = svg
+      svg
         .append("path")
         .datum(series.data)
         .attr("fill", "none")
         .attr("stroke", colors[index])
         .attr("stroke-width", 7)
         .attr("d", line)
-        .attr("class", `line-visible-${index}`);
+        .attr("class", `line-visible-${index}`)
+        .style("pointer-events", "none");
     });
   }, [data, dimensions]);
 
@@ -135,7 +146,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           const color = colors[index];
           const style = {
             backgroundColor: color,
-            width: "20px", // Specify width and height so the div is visible
+            width: "20px",
             height: "20px",
           };
 
