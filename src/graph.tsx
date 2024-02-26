@@ -4,17 +4,10 @@ import { DataPoint, GraphProps } from "./types";
 import { colors } from "./colors";
 
 const Graph: React.FC<GraphProps> = ({ data }) => {
-  // console.log("data:", data);
-
   const svgRef = useRef<SVGSVGElement>(null);
   const parentRef = useRef<HTMLDivElement>(null); // Ref to the parent container
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const colorMap = data.map((series, index) => {
-    return { [series.name]: colors[index] } as { [key: string]: string };
-  });
-
-  console.log(colorMap);
 
   // Update dimensions based on the window's size
   useEffect(() => {
@@ -92,10 +85,12 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
       .x((d) => x(d.year))
       .y((d) => y(d.value));
 
+    // Create global flags to track what is being hovered and prevent hover issues when hovering between circles and lines
+    let circleHovered = false;
+    let lineHovered = false;
+    let currentLineHovered: number = 100;
+
     // Appends a path element for each series to the SVG container, associates it with the provided data, and sets attributes to define its appearance and the "d" attribute to define the path's shape based on the "line" generator function.
-
-    let isMouseOverCircle = false; // Setup a flag to solve issue of when mouse hover goes from line to circle and screws up hover state
-
     data.forEach((series, index) => {
       // Append the actual visible path
       svg
@@ -105,8 +100,8 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
         .attr("stroke", colors[index])
         .attr("stroke-width", 7)
         .attr("d", line)
-        .attr("class", `line-visible-${index}`)
-        .style("pointer-events", "none");
+        .attr("class", `line-visible-${index}`);
+      // .style("pointer-events", "none");
 
       // Append an invisible wider path for easier hover interaction
       svg
@@ -115,9 +110,13 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
         .attr("fill", "none")
         .attr("class", "interactive-path")
         .attr("stroke", "transparent")
-        .attr("stroke-width", 40) // Increase the stroke-width for a larger hover area
+        .attr("stroke-width", 20) // Increase the stroke-width for a larger hover area
         .attr("d", line)
+        .style("cursor", "pointer") // Apply cursor style here
+        .attr("class", `line-invisible-${index}`)
         .on("mouseenter", function (event, d) {
+          lineHovered = true;
+          currentLineHovered = index;
           // Delay hover effect
           d3.select(`.line-visible-${index}`)
             .attr("stroke-width", 9)
@@ -131,14 +130,15 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
             .style("top", event.pageY + 10 + "px");
         })
         .on("mouseleave", function () {
-          console.log("mouse is over circle: ", isMouseOverCircle);
-          if (isMouseOverCircle) return;
-          console.log("still running");
+          lineHovered = false;
           // Reset hover effects on the visible path
-          d3.select(`.line-visible-${index}`)
-            .transition()
-            .attr("stroke-width", 7)
-            .style("filter", null);
+          setTimeout(() => {
+            if (circleHovered) return;
+            d3.select(`.line-visible-${index}`)
+              .transition()
+              .attr("stroke-width", 7)
+              .style("filter", null);
+          }, 20);
           // Hide tooltip
           d3.select("#tooltip").style("opacity", 0);
         });
@@ -152,6 +152,8 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           .attr("r", 9)
           .attr("fill", colors[index]) // Use the same color as the line
           .on("mouseenter", function (event) {
+            circleHovered = true;
+            currentLineHovered = index;
             // Hover effects on the circle itself
             d3.select(this)
               .transition()
@@ -161,11 +163,10 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
               .style("cursor", "pointer");
 
             // Apply hover effects to the corresponding visible path
-            setTimeout(() => {
-              d3.select(`.line-visible-${index}`)
-                .attr("stroke-width", 9)
-                .style("filter", "drop-shadow(0 0 10px white)");
-            }, 10);
+            d3.select(`.line-visible-${index}`)
+              .attr("stroke-width", 9)
+              .style("filter", "drop-shadow(0 0 10px white)");
+
             // Show tooltip (optional, based on your existing tooltip logic)
             d3.select("#tooltip")
               .style("opacity", 1)
@@ -174,19 +175,24 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
               .style("top", `${event.pageY + 10}px`);
           })
           .on("mouseleave", function () {
-            isMouseOverCircle = false;
+            circleHovered = false;
             // Reset hover effects on the circle itself
+
             d3.select(this)
               .transition()
               .duration(150)
               .attr("r", 9) // Revert to default radius
               .attr("fill", colors[index]); // Revert to original color
 
-            // Reset hover effects on the corresponding visible path
-            // d3.select(`.line-visible-${index}`)
-            //   .transition()
-            //   .attr("stroke-width", 7)
-            //   .style("filter", null);
+            // Reset hover effects on the corresponding visible path if the same line is not being hovered
+            setTimeout(() => {
+              if (lineHovered && currentLineHovered === index) return;
+
+              d3.select(`.line-visible-${index}`)
+                .transition()
+                .attr("stroke-width", 7)
+                .style("filter", null);
+            }, 20);
 
             // Hide tooltip
             d3.select("#tooltip").style("opacity", 0);
