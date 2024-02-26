@@ -93,39 +93,10 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
       .y((d) => y(d.value));
 
     // Appends a path element for each series to the SVG container, associates it with the provided data, and sets attributes to define its appearance and the "d" attribute to define the path's shape based on the "line" generator function.
-    data.forEach((series, index) => {
-      // Append an invisible wider path for easier hover interaction
-      svg
-        .append("path")
-        .datum(series.data)
-        .attr("fill", "none")
-        .attr("class", "interactive-path")
-        .attr("stroke", "transparent")
-        .attr("stroke-width", 40) // Increase the stroke-width for a larger hover area
-        .attr("d", line)
-        .on("mouseover", function (event, d) {
-          // Apply hover effects to the visible path
-          d3.select(`.line-visible-${index}`)
-            .attr("stroke-width", 11)
-            .style("cursor", "pointer")
-            .style("filter", "drop-shadow(0 0 10px white)");
-          // Show tooltip
-          d3.select("#tooltip")
-            .style("opacity", 1)
-            .html(`Tooltip content for series ${index}`) // Customize this content
-            .style("left", event.pageX + 10 + "px") // Position the tooltip
-            .style("top", event.pageY + 10 + "px");
-        })
-        .on("mouseout", function () {
-          // Reset hover effects on the visible path
-          d3.select(`.line-visible-${index}`)
-            .transition()
-            .attr("stroke-width", 7)
-            .style("filter", null);
-          // Hide tooltip
-          d3.select("#tooltip").style("opacity", 0);
-        });
 
+    let isMouseOverCircle = false; // Setup a flag to solve issue of when mouse hover goes from line to circle and screws up hover state
+
+    data.forEach((series, index) => {
       // Append the actual visible path
       svg
         .append("path")
@@ -136,6 +107,91 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
         .attr("d", line)
         .attr("class", `line-visible-${index}`)
         .style("pointer-events", "none");
+
+      // Append an invisible wider path for easier hover interaction
+      svg
+        .append("path")
+        .datum(series.data)
+        .attr("fill", "none")
+        .attr("class", "interactive-path")
+        .attr("stroke", "transparent")
+        .attr("stroke-width", 40) // Increase the stroke-width for a larger hover area
+        .attr("d", line)
+        .on("mouseenter", function (event, d) {
+          // Delay hover effect
+          d3.select(`.line-visible-${index}`)
+            .attr("stroke-width", 9)
+            .style("cursor", "pointer")
+            .style("filter", "drop-shadow(0 0 10px white)");
+          // Show tooltip
+          d3.select("#tooltip")
+            .style("opacity", 1)
+            .html(`Tooltip content for series ${index}`)
+            .style("left", event.pageX + 10 + "px")
+            .style("top", event.pageY + 10 + "px");
+        })
+        .on("mouseleave", function () {
+          console.log("mouse is over circle: ", isMouseOverCircle);
+          if (isMouseOverCircle) return;
+          console.log("still running");
+          // Reset hover effects on the visible path
+          d3.select(`.line-visible-${index}`)
+            .transition()
+            .attr("stroke-width", 7)
+            .style("filter", null);
+          // Hide tooltip
+          d3.select("#tooltip").style("opacity", 0);
+        });
+
+      // Add circles for each data point on the line
+      series.data.forEach((dataPoint) => {
+        svg
+          .append("circle")
+          .attr("cx", x(dataPoint.year))
+          .attr("cy", y(dataPoint.value))
+          .attr("r", 9)
+          .attr("fill", colors[index]) // Use the same color as the line
+          .on("mouseenter", function (event) {
+            // Hover effects on the circle itself
+            d3.select(this)
+              .transition()
+              .duration(150)
+              .attr("r", 12) // Increase radius on hover
+              .attr("fill", "yellow") // Change color on hover
+              .style("cursor", "pointer");
+
+            // Apply hover effects to the corresponding visible path
+            setTimeout(() => {
+              d3.select(`.line-visible-${index}`)
+                .attr("stroke-width", 9)
+                .style("filter", "drop-shadow(0 0 10px white)");
+            }, 10);
+            // Show tooltip (optional, based on your existing tooltip logic)
+            d3.select("#tooltip")
+              .style("opacity", 1)
+              .html(`Value: ${dataPoint.value} in ${dataPoint.year}`) // Customize content
+              .style("left", `${event.pageX + 10}px`)
+              .style("top", `${event.pageY + 10}px`);
+          })
+          .on("mouseleave", function () {
+            isMouseOverCircle = false;
+            // Reset hover effects on the circle itself
+            d3.select(this)
+              .transition()
+              .duration(150)
+              .attr("r", 9) // Revert to default radius
+              .attr("fill", colors[index]); // Revert to original color
+
+            // Reset hover effects on the corresponding visible path
+            // d3.select(`.line-visible-${index}`)
+            //   .transition()
+            //   .attr("stroke-width", 7)
+            //   .style("filter", null);
+
+            // Hide tooltip
+            d3.select("#tooltip").style("opacity", 0);
+          });
+      });
     });
   }, [data, dimensions]);
 
