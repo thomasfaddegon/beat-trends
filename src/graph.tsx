@@ -253,7 +253,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           return (
             <div
               key={series.name}
-              className="flex flex-row items-center gap-2 my-2"
+              className="flex flex-row items-center gap-2 my-[2px]"
             >
               <div style={style} className="h-4 w-4"></div>
               <span className="text-white">{series.name}</span>

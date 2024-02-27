@@ -49,7 +49,12 @@ const App: React.FC = () => {
   };
 
   const handleCategoryChange = (category: string) => {
+    setSelectedFields([]);
     setCurrentCategory(category);
+  };
+
+  const handleClear = () => {
+    setSelectedFields([]);
   };
 
   return (
@@ -69,11 +74,11 @@ const App: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="py-6 px-16 w-full flex flex-grow">
+          <div className="pt-8 pb-2 px-16 w-full flex flex-col flex-grow">
             <div className="flex flex-row flex-wrap gap-[6px] justify-center w-full">
               {currentCategory &&
                 categoryDataMap[
-                  currentCategory as keyof typeof categoryDataMap
+                  currentCategory as keyof typeof categoryDataMap // Union type assertion to avoid TS error
                 ].map((field, index) => (
                   <div className="flex flex-row px-2 cursor-pointer select-none">
                     <input
@@ -95,8 +100,11 @@ const App: React.FC = () => {
                   </div>
                 ))}
             </div>
+            <div className="flex justify-center py-4">
+              <button onClick={handleClear}>Clear All</button>
+            </div>
           </div>
-          <div className="p-8 w-full" style={{ width: "100%" }}>
+          <div className="px-8 pt-4 pb-8 w-full" style={{ width: "100%" }}>
             <Graph data={data} />
           </div>{" "}
           <div
