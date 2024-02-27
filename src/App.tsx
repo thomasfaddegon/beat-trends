@@ -104,7 +104,8 @@ const App: React.FC = () => {
             style={{
               position: "absolute",
               opacity: 0,
-              background: "#fff",
+              background: "black",
+              color: "white",
               border: "1px solid #000",
               padding: "10px",
               pointerEvents: "none",

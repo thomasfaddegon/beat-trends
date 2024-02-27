@@ -20,7 +20,8 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
       setDimensions({ width, height });
     };
 
-    updateDimensions(); // Initial dimension setting
+    // Initial dimension setting
+    updateDimensions();
 
     // Update dimensions when the parent container's size changes
     const resizeObserver = new ResizeObserver(updateDimensions);
@@ -29,17 +30,18 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
     }
 
     return () => {
-      resizeObserver.disconnect(); // Cleanup on component unmount
+      resizeObserver.disconnect();
     };
   }, [data]);
 
+  // Create the graph
   useEffect(() => {
     if (!svgRef.current || dimensions.width === 0 || dimensions.height === 0)
       return;
 
     d3.select(svgRef.current).selectAll("*").remove(); // Clear the SVG to prevent duplication
 
-    const margin = { top: 30, right: 50, bottom: 30, left: 50 };
+    const margin = { top: 30, right: 50, bottom: 60, left: 50 };
     const width = dimensions.width - margin.left - margin.right;
     const height = dimensions.height - margin.top - margin.bottom;
 
@@ -85,13 +87,34 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
       .x((d) => x(d.year))
       .y((d) => y(d.value));
 
+    svg
+      .append("text")
+      .attr(
+        "transform",
+        "translate(" + width / 2 + " ," + (height + margin.bottom - 10) + ")"
+      )
+      .attr("class", "label")
+      .style("text-anchor", "middle")
+      .text("Year");
+
+    svg
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x", 0 - height / 2)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .attr("class", "label")
+      .text("Tracks in the Beatport Top 100");
+
     // Create global flags to track what is being hovered and prevent hover issues when hovering between circles and lines
     let circleHovered = false;
     let lineHovered = false;
-    let currentLineHovered: number = 100;
+    let currentLineHovered: number = 999;
 
-    // Appends a path element for each series to the SVG container, associates it with the provided data, and sets attributes to define its appearance and the "d" attribute to define the path's shape based on the "line" generator function.
+    // Appends a path element (line) for each series to the SVG container, associates it with the provided data, and sets attributes to define its appearance and the "d" attribute to define the path's shape based on the "line" generator function.
     data.forEach((series, index) => {
+      console.log(series.name);
       // Append the actual visible path
       svg
         .append("path")
@@ -101,7 +124,6 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
         .attr("stroke-width", 7)
         .attr("d", line)
         .attr("class", `line-visible-${index}`);
-      // .style("pointer-events", "none");
 
       // Append an invisible wider path for easier hover interaction
       svg
@@ -125,7 +147,13 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           // Show tooltip
           d3.select("#tooltip")
             .style("opacity", 1)
-            .html(`Tooltip content for series ${index}`)
+            .style("left", event.pageX + 10 + "px")
+            .style("top", event.pageY + 10 + "px")
+            .html(`${series.name}`);
+        })
+        // Update tooltip position on mouse move
+        .on("mousemove", function (event) {
+          d3.select("#tooltip")
             .style("left", event.pageX + 10 + "px")
             .style("top", event.pageY + 10 + "px");
         })
@@ -167,13 +195,23 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
               .attr("stroke-width", 9)
               .style("filter", "drop-shadow(0 0 10px white)");
 
-            // Show tooltip (optional, based on your existing tooltip logic)
+            // Show tooltip
             d3.select("#tooltip")
               .style("opacity", 1)
-              .html(`Value: ${dataPoint.value} in ${dataPoint.year}`) // Customize content
               .style("left", `${event.pageX + 10}px`)
-              .style("top", `${event.pageY + 10}px`);
+              .style("top", `${event.pageY + 10}px`)
+              .html(
+                `<h3>${series.name}</h3><p>${dataPoint.value} tracks in ${dataPoint.year}</p>`
+              );
           })
+
+          // Update tooltip position on mouse move
+          .on("mousemove", function (event) {
+            d3.select("#tooltip")
+              .style("left", event.pageX + 10 + "px")
+              .style("top", event.pageY + 10 + "px");
+          })
+
           .on("mouseleave", function () {
             circleHovered = false;
             // Reset hover effects on the circle itself
