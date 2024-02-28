@@ -6,13 +6,6 @@ import CategorySelector from "./CategorySelector";
 import { genres, subGenres, labels, artists } from "./fields";
 
 const App: React.FC = () => {
-  const [selectedFields, setSelectedFields] = useState<string[]>([]);
-  const [data, setData] = useState<DataSeries[]>([]);
-  const [currentCategory, setCurrentCategory] = useState<string>("Genres");
-  const [limitReached, setLimitReached] = useState(false);
-
-  const categories = ["Genres", "Subgenres", "Labels", "Artists"];
-
   // Object to map category names to their respective data arrays
   const categoryDataMap = {
     Genres: genres,
@@ -20,6 +13,19 @@ const App: React.FC = () => {
     Labels: labels,
     Artists: artists,
   };
+
+  const defaultCategory = "Genres";
+  const initialSelectedFields = categoryDataMap[defaultCategory].slice(0, 3);
+
+  const [currentCategory, setCurrentCategory] =
+    useState<string>(defaultCategory);
+  const [selectedFields, setSelectedFields] = useState<string[]>(
+    initialSelectedFields
+  );
+  const [data, setData] = useState<DataSeries[]>([]);
+  const [limitReached, setLimitReached] = useState(false);
+
+  const categories = ["Genres", "Subgenres", "Labels", "Artists"];
 
   // Fetch the JSON data and transform it into a format that can be used by the graph
   useEffect(() => {
