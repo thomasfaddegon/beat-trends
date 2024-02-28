@@ -135,7 +135,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
         .attr("d", line)
         .style("cursor", "pointer") // Apply cursor style here
         .attr("class", `line-invisible-${index}`)
-        .on("mouseenter", function (event, d) {
+        .on("mouseenter", function (event) {
           lineHovered = true;
           currentLineHovered = index;
           // Delay hover effect

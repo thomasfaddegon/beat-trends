@@ -21,6 +21,7 @@ const App: React.FC = () => {
     Artists: artists,
   };
 
+  // Fetch the JSON data and transform it into a format that can be used by the graph
   useEffect(() => {
     fetch("/allData.json")
       .then((response) => response.json())
@@ -42,19 +43,25 @@ const App: React.FC = () => {
   }, [selectedFields, currentCategory]);
 
   const handleFieldChange = (field: string) => {
-    console.log(data.length);
-    console.log(limitReached);
-    if (data.length >= 15) {
-      setLimitReached(true);
-      return;
-    } else {
-      setLimitReached(false);
-    }
     if (!selectedFields.includes(field)) {
-      setSelectedFields((prevFields) => [...prevFields, field]);
+      if (selectedFields.length <= 11) {
+        // Check limit before adding
+        setSelectedFields((prevFields) => [...prevFields, field]);
+      } else {
+        setLimitReached(true);
+      }
     } else {
-      setSelectedFields((prevFields) => prevFields.filter((f) => f !== field));
+      setSelectedFields((prevFields) => {
+        const updatedFields = prevFields.filter((f) => f !== field);
+        setLimitReached(updatedFields.length >= 12); // Update limitReached based on new length
+        return updatedFields;
+      });
     }
+  };
+
+  const handleClear = () => {
+    setSelectedFields([]);
+    setLimitReached(false); // Ensure limitReached is reset when clearing all fields
   };
 
   const handleCategoryChange = (category: string) => {
@@ -67,20 +74,12 @@ const App: React.FC = () => {
     setCurrentCategory(category);
   };
 
-  const handleClear = () => {
-    setSelectedFields([]);
-  };
-
-  console.log(data);
-
   const sortData = (data: DataSeries[]) => {
     console.log();
     const totalData = data.map((series) => {
       const total = series.data.reduce((acc, curr) => acc + curr.value, 0);
       return { [series.name]: total };
     });
-
-    console.log("totalData:", totalData);
 
     const sortedData = totalData.sort((a, b) => {
       const aValue = Object.values(a)[0];
@@ -139,8 +138,8 @@ const App: React.FC = () => {
                 ))}
             </div>
             {limitReached && (
-              <div>
-                <p className="text-red-600">20 Line Limit Reached</p>
+              <div className="flex justify-center pt-2">
+                <p className="text-red-600">12 Line Limit Reached</p>
               </div>
             )}
             <div className="flex justify-center py-4">
@@ -164,17 +163,12 @@ const App: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {sortedData.map(
-                  (series, index) => (
-                    console.log("series:", series),
-                    (
-                      <tr key={index}>
-                        <td className="w-1/3">{Object.keys(series)[0]}</td>
-                        <td className="w-2/3">{Object.values(series)[0]}</td>
-                      </tr>
-                    )
-                  )
-                )}
+                {sortedData.map((series, index) => (
+                  <tr key={index}>
+                    <td className="w-1/3">{Object.keys(series)[0]}</td>
+                    <td className="w-2/3">{Object.values(series)[0]}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
