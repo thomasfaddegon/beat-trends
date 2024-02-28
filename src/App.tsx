@@ -6,6 +6,19 @@ import CategorySelector from "./CategorySelector";
 import { genres, subGenres, labels, artists } from "./fields";
 
 const App: React.FC = () => {
+  // Check screen size
+  const [isScreenSmall, setIsScreenSmall] = useState(window.innerWidth < 300);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsScreenSmall(window.innerWidth < 600);
+    };
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   // Object to map category names to their respective data arrays
   const categoryDataMap = {
     Genres: genres,
@@ -99,7 +112,30 @@ const App: React.FC = () => {
   const sortedData = sortData(data);
 
   return (
-    <div className="min-h-screen flex justify-center pt-12">
+    <div className="min-h-screen flex justify-center pt-12 w-full">
+      <>
+        {isScreenSmall && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.8)",
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 1000,
+            }}
+          >
+            <p className="px-12 text-center text-xl">
+              For an optimal viewing experience, please use a larger device.
+            </p>
+          </div>
+        )}
+      </>
       <div className="max-w-screen-xl w-full flex flex-grow flex-col px-8">
         <h1 className="mb-4 text-5xl text-center">
           The Popularity of Dance Music Genres
