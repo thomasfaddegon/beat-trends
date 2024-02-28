@@ -9,6 +9,7 @@ const App: React.FC = () => {
   const [selectedFields, setSelectedFields] = useState<string[]>([]);
   const [data, setData] = useState<DataSeries[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string>("Genres");
+  const [limitReached, setLimitReached] = useState(false);
 
   const categories = ["Genres", "Subgenres", "Labels", "Artists"];
 
@@ -41,6 +42,14 @@ const App: React.FC = () => {
   }, [selectedFields, currentCategory]);
 
   const handleFieldChange = (field: string) => {
+    console.log(data.length);
+    console.log(limitReached);
+    if (data.length >= 15) {
+      setLimitReached(true);
+      return;
+    } else {
+      setLimitReached(false);
+    }
     if (!selectedFields.includes(field)) {
       setSelectedFields((prevFields) => [...prevFields, field]);
     } else {
@@ -49,7 +58,12 @@ const App: React.FC = () => {
   };
 
   const handleCategoryChange = (category: string) => {
-    setSelectedFields([]);
+    // Access the first three options from the newly selected category
+    const firstThreeOptions = categoryDataMap[
+      category as keyof typeof categoryDataMap
+    ].slice(0, 3);
+    setSelectedFields(firstThreeOptions.length > 0 ? firstThreeOptions : []);
+
     setCurrentCategory(category);
   };
 
@@ -57,11 +71,34 @@ const App: React.FC = () => {
     setSelectedFields([]);
   };
 
+  console.log(data);
+
+  const sortData = (data: DataSeries[]) => {
+    console.log();
+    const totalData = data.map((series) => {
+      const total = series.data.reduce((acc, curr) => acc + curr.value, 0);
+      return { [series.name]: total };
+    });
+
+    console.log("totalData:", totalData);
+
+    const sortedData = totalData.sort((a, b) => {
+      const aValue = Object.values(a)[0];
+      const bValue = Object.values(b)[0];
+      return bValue - aValue;
+    });
+
+    return sortedData;
+  };
+
+  const sortedData = sortData(data);
+
   return (
     <div className="min-h-screen flex justify-center pt-12">
       <div className="max-w-screen-xl w-full flex flex-grow flex-col px-8">
         <h1 className="mb-10 text-center">Beatport Popularity</h1>
-        <div className="border-2 border-white w-full bg-slate-900 max-w-6xl rounded-sm shadow-sm">
+        <div className="border-2 border-white w-full bg-slate-900 max-w-6xl rounded-sm shadow-sm pb-12">
+          {/* CATEGORIES */}
           <div className="flex flex-row items-center justify-center w-full">
             {categories.map((category) => (
               <div className="w-1/4 text-center ">
@@ -75,6 +112,7 @@ const App: React.FC = () => {
             ))}
           </div>
           <div className="pt-8 pb-2 px-16 w-full flex flex-col flex-grow">
+            {/* LIST OF INPUTS*/}
             <div className="flex flex-row flex-wrap gap-[6px] justify-center w-full">
               {currentCategory &&
                 categoryDataMap[
@@ -100,13 +138,46 @@ const App: React.FC = () => {
                   </div>
                 ))}
             </div>
+            {limitReached && (
+              <div>
+                <p className="text-red-600">20 Line Limit Reached</p>
+              </div>
+            )}
             <div className="flex justify-center py-4">
               <button onClick={handleClear}>Clear All</button>
             </div>
           </div>
+          {/* LEGEND & GRAPH */}
           <div className="px-8 pt-4 pb-8 w-full" style={{ width: "100%" }}>
             <Graph data={data} />
           </div>{" "}
+          <div className="pl-24">
+            <table className="mt-4 w-full text-white">
+              <thead>
+                <tr>
+                  <th className="text-left text-lg">
+                    {currentCategory.substring(0, currentCategory.length - 1)}
+                  </th>
+                  <th className="text-left text-lg">
+                    Total Beatport Appearances
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedData.map(
+                  (series, index) => (
+                    console.log("series:", series),
+                    (
+                      <tr key={index}>
+                        <td className="w-1/3">{Object.keys(series)[0]}</td>
+                        <td className="w-2/3">{Object.values(series)[0]}</td>
+                      </tr>
+                    )
+                  )
+                )}
+              </tbody>
+            </table>
+          </div>
           <div
             id="tooltip"
             style={{

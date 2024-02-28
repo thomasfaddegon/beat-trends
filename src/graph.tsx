@@ -41,7 +41,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
 
     d3.select(svgRef.current).selectAll("*").remove(); // Clear the SVG to prevent duplication
 
-    const margin = { top: 30, right: 50, bottom: 60, left: 50 };
+    const margin = { top: 30, right: 50, bottom: 60, left: 70 };
     const width = dimensions.width - margin.left - margin.right;
     const height = dimensions.height - margin.top - margin.bottom;
 
@@ -114,7 +114,6 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
 
     // Appends a path element (line) for each series to the SVG container, associates it with the provided data, and sets attributes to define its appearance and the "d" attribute to define the path's shape based on the "line" generator function.
     data.forEach((series, index) => {
-      console.log(series.name);
       // Append the actual visible path
       svg
         .append("path")
@@ -241,7 +240,8 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
 
   return (
     <div className="w-full" ref={parentRef}>
-      <div className="flex flex-row flex-wrap w-full justify-center gap-3">
+      {/* Create Legend */}
+      <div className="flex flex-row flex-wrap w-full justify-center gap-3 px-8 pb-4">
         {data.map((series, index) => {
           const color = colors[index];
           const style = {
@@ -251,10 +251,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           };
 
           return (
-            <div
-              key={series.name}
-              className="flex flex-row items-center gap-2 my-[2px]"
-            >
+            <div key={series.name} className="flex flex-row items-center gap-2">
               <div style={style} className="h-4 w-4"></div>
               <span className="text-white">{series.name}</span>
             </div>
