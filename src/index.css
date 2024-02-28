@@ -68,3 +68,12 @@ button:hover {
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 }
+
+.line-highlight {
+  stroke-width: 9px; /* Adjust the stroke width as needed */
+  filter: drop-shadow(0 0 10px white); /* Optional: Add a glow effect */
+}
+
+.legend-item {
+  cursor: pointer;
+}

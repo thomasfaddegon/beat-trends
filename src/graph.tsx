@@ -6,6 +6,7 @@ import { colors } from "./colors";
 const Graph: React.FC<GraphProps> = ({ data }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const parentRef = useRef<HTMLDivElement>(null); // Ref to the parent container
+  const [hoveredSeriesName, setHoveredSeriesName] = useState<string>("");
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -122,7 +123,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
         .attr("stroke", colors[index])
         .attr("stroke-width", 7)
         .attr("d", line)
-        .attr("class", `line-visible-${index}`);
+        .attr("class", `line-visible line-visible-${index}`);
 
       // Append an invisible wider path for easier hover interaction
       svg
@@ -236,7 +237,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           });
       });
     });
-  }, [data, dimensions]);
+  }, [data, dimensions, hoveredSeriesName]);
 
   return (
     <div className="w-full" ref={parentRef}>
@@ -251,7 +252,22 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           };
 
           return (
-            <div key={series.name} className="flex flex-row items-center gap-2">
+            <div
+              key={series.name}
+              className="legend-item flex flex-row items-center gap-2"
+              onMouseEnter={() => {
+                // Highlight the corresponding line
+                d3.select(svgRef.current)
+                  .select(`.line-visible-${index}`)
+                  .classed("line-highlight", true);
+              }}
+              onMouseLeave={() => {
+                // Remove highlight from the line
+                d3.select(svgRef.current)
+                  .select(`.line-visible-${index}`)
+                  .classed("line-highlight", false);
+              }}
+            >
               <div style={style} className="h-4 w-4"></div>
               <span className="text-white">{series.name}</span>
             </div>

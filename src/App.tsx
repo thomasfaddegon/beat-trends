@@ -101,7 +101,12 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex justify-center pt-12">
       <div className="max-w-screen-xl w-full flex flex-grow flex-col px-8">
-        <h1 className="mb-10 text-center">Beatport Popularity</h1>
+        <h1 className="mb-4 text-5xl text-center">
+          The Popularity of Dance Music Genres
+        </h1>
+        <h2 className="mb-10 text-center text-xl">
+          (According to the Beatport Top 100)
+        </h2>
         <div className="border-2 border-white w-full bg-slate-900 max-w-6xl rounded-sm shadow-sm pb-12">
           {/* CATEGORIES */}
           <div className="flex flex-row items-center justify-center w-full">
