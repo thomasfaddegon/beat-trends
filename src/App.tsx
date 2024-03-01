@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import CategorySelector from "./CategorySelector";
 import Graph from "./Graph";
 import "./App.css";
 import { DataSeries } from "./types";
-import CategorySelector from "./CategorySelector";
 import questionMark from "../src/assets/questionMark.svg";
 import { genres, subGenres, labels, artists } from "./fields";
 import FAQ from "./FAQ";
