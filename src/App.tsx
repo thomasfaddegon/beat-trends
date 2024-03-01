@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Graph from "./Graph.tsx";
+import Graph from "./Graph";
 import "./App.css";
 import { DataSeries } from "./types";
 import CategorySelector from "./CategorySelector";
