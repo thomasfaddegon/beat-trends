@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CategorySelector from "./CategorySelector";
-import Graph from "./Graph";
+import Graph from "./GraphComponent";
 import "./App.css";
 import { DataSeries } from "./types";
 import questionMark from "../src/assets/questionMark.svg";
@@ -8,7 +8,7 @@ import { genres, subGenres, labels, artists } from "./fields";
 import FAQ from "./FAQ";
 
 const App: React.FC = () => {
-  // Check screen size
+  // Check screen size and display overlay if too small
   const [isScreenSmall, setIsScreenSmall] = useState(window.innerWidth < 300);
 
   useEffect(() => {
