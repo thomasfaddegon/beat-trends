@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Graph from "./Graph";
+import Graph from "./Graph.tsx";
 import "./App.css";
 import { DataSeries } from "./types";
-import CategorySelector from "./CategorySelector";
+import CategorySelector from "./CategorySelector.tsx";
 import questionMark from "../src/assets/questionMark.svg";
 import { genres, subGenres, labels, artists } from "./fields";
-import FAQ from "./FAQ";
+import FAQ from "./FAQ.tsx";
 
 const App: React.FC = () => {
   // Check screen size
