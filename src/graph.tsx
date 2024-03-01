@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
-import { DataPoint, GraphProps } from "./types.ts";
-import { colors } from "./colors.ts";
+import { DataPoint, GraphProps } from "./types";
+import { colors } from "./colors";
 
 const Graph: React.FC<GraphProps> = ({ data }) => {
   const svgRef = useRef<SVGSVGElement>(null);

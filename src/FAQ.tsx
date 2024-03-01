@@ -1,3 +1,5 @@
+import React from "react";
+
 const FAQ = () => {
   return (
     <div className="max-w-3xl flex flex-col items-center self-center my-16">
