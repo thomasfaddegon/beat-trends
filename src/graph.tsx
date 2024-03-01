@@ -6,7 +6,7 @@ import { colors } from "./colors";
 const Graph: React.FC<GraphProps> = ({ data }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const parentRef = useRef<HTMLDivElement>(null); // Ref to the parent container
-  const [hoveredSeriesName, setHoveredSeriesName] = useState<string>("");
+  // const [hoveredSeriesName, setHoveredSeriesName] = useState<string>("");
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -237,7 +237,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           });
       });
     });
-  }, [data, dimensions, hoveredSeriesName]);
+  }, [data, dimensions]);
 
   return (
     <div className="w-full" ref={parentRef}>

@@ -3,7 +3,9 @@ import Graph from "./Graph";
 import "./App.css";
 import { DataSeries } from "./types";
 import CategorySelector from "./CategorySelector";
+import questionMark from "../src/assets/questionMark.svg";
 import { genres, subGenres, labels, artists } from "./fields";
+import FAQ from "./FAQ";
 
 const App: React.FC = () => {
   // Check screen size
@@ -112,8 +114,8 @@ const App: React.FC = () => {
   const sortedData = sortData(data);
 
   return (
-    <div className="min-h-screen flex justify-center pt-12 w-full">
-      <>
+    <div className="min-h-screen flex justify-center items-center pt-12 w-full flex-col">
+      <div>
         {isScreenSmall && (
           <div
             style={{
@@ -135,15 +137,15 @@ const App: React.FC = () => {
             </p>
           </div>
         )}
-      </>
-      <div className="max-w-screen-xl w-full flex flex-grow flex-col px-8">
+      </div>
+      <div className="max-w-screen-xl w-full flex flex-grow flex-col px-8 ">
         <h1 className="mb-4 text-5xl text-center">
           The Popularity of Dance Music Genres
         </h1>
         <h2 className="mb-10 text-center text-xl">
           (According to the Beatport Top 100)
         </h2>
-        <div className="border-2 border-white w-full bg-slate-900 max-w-6xl rounded-sm shadow-sm pb-12">
+        <div className="border-2 border-white w-full bg-slate-900 max-w-7xl rounded-sm shadow-sm pb-12">
           {/* CATEGORIES */}
           <div className="flex flex-row items-center justify-center w-full">
             {categories.map((category) => (
@@ -158,7 +160,7 @@ const App: React.FC = () => {
             ))}
           </div>
           <div className="pt-8 pb-2 px-16 w-full flex flex-col flex-grow">
-            {/* LIST OF INPUTS*/}
+            {/* LIST OF FIELDS*/}
             <div className="flex flex-row flex-wrap gap-[6px] justify-center w-full">
               {currentCategory &&
                 categoryDataMap[
@@ -181,6 +183,35 @@ const App: React.FC = () => {
                     >
                       {field}
                     </label>
+                    {field === "EDM" && (
+                      <>
+                        <img
+                          src={questionMark}
+                          className="ml-1"
+                          onMouseOver={(e) => {
+                            const tooltip =
+                              document.getElementById("EDM-tooltip");
+                            if (tooltip) {
+                              const iconRect =
+                                e.currentTarget.getBoundingClientRect();
+                              tooltip.style.opacity = "1";
+                              tooltip.style.left = `${iconRect.right + 5}px`;
+                              tooltip.style.top = `${iconRect.top}px`;
+                            }
+                          }}
+                          onMouseLeave={() => {
+                            const tooltip =
+                              document.getElementById("EDM-tooltip");
+                            tooltip?.style.setProperty("opacity", "0");
+                          }}
+                        />
+                        <div id="EDM-tooltip" className="tooltip">
+                          "EDM" is bundle of subgenres including Progressive
+                          House, Electro House, Future House, and Big Room. If
+                          you disagree with this classification, you are wrong.
+                        </div>
+                      </>
+                    )}
                   </div>
                 ))}
             </div>
@@ -219,19 +250,9 @@ const App: React.FC = () => {
               </tbody>
             </table>
           </div>
-          <div
-            id="tooltip"
-            style={{
-              position: "absolute",
-              opacity: 0,
-              background: "black",
-              color: "white",
-              border: "1px solid #000",
-              padding: "10px",
-              pointerEvents: "none",
-            }}
-          ></div>
+          <div id="tooltip" className="tooltip"></div>
         </div>
+        <FAQ />
       </div>
     </div>
   );
