@@ -1,7 +1,7 @@
 const FAQ = () => {
   return (
     <div className="max-w-3xl flex flex-col items-center self-center my-16">
-      <h2 className="text-4xl font-bold mb-4">FAQs</h2>
+      <h2 className="text-4xl font-bold mb-6">About This App</h2>
       <p>
         <strong>
           How did you build this? Where did you get your data from?
@@ -28,8 +28,8 @@ const FAQ = () => {
         agree that they are not always perfect. Their recent division of techno
         into "Raw / Deep / Hypnotic" and "Peak-Time" is so laughably bad I
         condensed everything to just "Techno" for this graph. But overall, I
-        find their labels to be pretty accurate, and tend to take way more issue
-        with genre gatekeepers who love nothing more than condescendingly
+        find their labels to be pretty accurate, and I tend to take way more
+        issue with genre gatekeepers who love nothing more than condescendingly
         explaning why a track is not "real" techno.
       </p>
       <p>
