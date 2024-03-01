@@ -4,23 +4,24 @@ const FAQ = () => {
       <h2 className="text-4xl font-bold mb-4">FAQs</h2>
       <p>
         <strong>
-          Where did you get your data from? How did you build this?
+          How did you build this? Where did you get your data from?
         </strong>{" "}
         I created this graph app by first crafting a custom web scraper with
-        Python and Selenium, capturing all the tracks from the Beatport Top 100
-        on the first of each month for a decade. After collecting the data, I
-        used Pandas to clean it up and organize it into JSONs. For the final
-        touch, I combined React and D3.js to design the UI and visualize the
-        data, making the app both informative and interactive.
+        Python and Selenium which I used to capture all the tracks from the
+        Beatport Top 100 on the first of each month for a decade in a CSV
+        format. After collecting the data, I used Pandas to clean it up and
+        organize it into JSONs. For the final touch, I combined React and the
+        powerful graph library D3.js to design the UI and visualize the data,
+        making the app both informative and interactive.
       </p>
       <p>
         <strong>What is the Beatport Top 100?</strong>{" "}
         <a href="https://beatport.com">Beatport</a> is a website where dance
-        music DJs can download new music, and the most downloaded songs are
-        ranked on their "Top 100" list. Think of the Beatport Top 100 as the
-        Billboard Hot 100 of dance music. While it's by no means representative
-        of the entire electronic music scene, it is an excellent baseline for
-        understanding the overall popularity of different genres over time.
+        music DJs can download new music. The most downloaded songs are ranked
+        on their "Top 100" list, which is basically the Billboard Hot 100 of
+        dance music. While it's by no means representative of the entire
+        electronic music scene, it is a solid baseline for understanding the
+        overall popularity of different genres over time.
       </p>
       <p>
         <strong>Beatport's genre classifications are inaccurate:</strong> I

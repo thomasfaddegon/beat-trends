@@ -139,8 +139,8 @@ const App: React.FC = () => {
         )}
       </div>
       <div className="max-w-screen-xl w-full flex flex-grow flex-col px-8 ">
-        <h1 className="mb-4 text-5xl text-center">
-          The Popularity of Dance Music Genres
+        <h1 className="mb-4 text-center max-w-4xl self-center">
+          The Popularity of Dance Music Genres, Labels, and Artists
         </h1>
         <h2 className="mb-10 text-center text-xl">
           (According to the Beatport Top 100)
