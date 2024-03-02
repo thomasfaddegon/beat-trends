@@ -201,7 +201,7 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
               .style("left", `${event.pageX + 10}px`)
               .style("top", `${event.pageY + 10}px`)
               .html(
-                `<h3>${series.name}</h3><p>${dataPoint.value} tracks in ${dataPoint.year}</p>`
+                `<h3>${series.name}</h3><span>${dataPoint.value} tracks in ${dataPoint.year}</span>`
               );
           })
 

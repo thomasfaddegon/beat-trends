@@ -7,7 +7,7 @@ import csv
 
 # Configurations
 EMAIL = 'beatportanalysisproject@gmail.com'
-PASSWORD = 'RyWqdvbC3FDEhHJ'
+PASSWORD = '***'
 start_date = datetime(2022, 1, 1)
 end_date = datetime(2022, 12, 1)
 BASE_URL = "https://www.bptoptracker.com/top/track/global/"
