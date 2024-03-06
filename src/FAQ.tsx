@@ -7,12 +7,12 @@ const FAQ = () => {
           How did you build this? Where did you get your data from?
         </strong>{" "}
         The data for this graph was not freely available, so my first step was
-        to code a custom web scraper with Python and Selenium. This scraper then
-        crawled a site with historical rankings of the Beatport, capture all the
-        tracks of the Beatport Top 100 on the first of each month over a
+        to code a custom web scraper with Python and Selenium. This scraper
+        crawled a site with historical rankings of the Beatport, capturing all
+        the tracks on the Beatport Top 100 on the first of each month over a
         decade-long span. After collecting the data in a CSV, I used Pandas to
-        clean it up and organize it into JSONs. For the final touch, I combined
-        React and the powerful graph library D3.js to design the UI and
+        clean it up and organize it into JSONs. Finally, to build the graph I
+        combined React and the powerful graph library D3.js to design the UI and
         visualize the data, making the app both informative and interactive.
       </p>
       <p>
