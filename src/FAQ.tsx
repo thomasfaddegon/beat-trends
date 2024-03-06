@@ -11,9 +11,9 @@ const FAQ = () => {
         crawled a site with historical rankings of the Beatport, capturing all
         the tracks on the Beatport Top 100 on the first of each month over a
         decade-long span. After collecting the data in a CSV, I used Pandas to
-        clean it up and organize it into JSONs. Finally, to build the graph I
+        clean it up and organize it into JSONs. Finally, to build the app I
         combined React and the powerful graph library D3.js to design the UI and
-        visualize the data, making the app both informative and interactive.
+        visualize the data.
       </p>
       <p>
         <strong>What is the Beatport Top 100?</strong>{" "}
