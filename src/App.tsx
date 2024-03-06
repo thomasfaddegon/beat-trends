@@ -139,12 +139,13 @@ const App: React.FC = () => {
         )}
       </div>
       <div className="max-w-screen-xl w-full flex flex-grow flex-col px-8 ">
-        <h1 className="mb-4 text-center max-w-4xl self-center">
-          The Popularity of Dance Music Genres, Labels, and Artists
-        </h1>
-        <h2 className="mb-10 text-center text-xl">
-          (According to the Beatport Top 100)
+        <h1 className="mb-4 text-center max-w-4xl self-center">Beat Trends</h1>
+        <h2 className="mb-4 text-center max-w-4xl self-center">
+          Mapping The Popularity of Dance Music Genres, Labels, and Artists*
         </h2>
+        <h3 className="mb-10 text-center text-xl">
+          (*According to the Beatport Top 100)
+        </h3>
         <div className="border-2 border-white w-full bg-slate-900 max-w-7xl rounded-sm shadow-sm pb-12">
           {/* CATEGORIES */}
           <div className="flex flex-row items-center justify-center w-full">
