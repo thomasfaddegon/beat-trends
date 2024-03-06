@@ -6,13 +6,14 @@ const FAQ = () => {
         <strong>
           How did you build this? Where did you get your data from?
         </strong>{" "}
-        I created this graph app by first crafting a custom web scraper with
-        Python and Selenium which I used to capture all the tracks from the
-        Beatport Top 100 on the first of each month for a decade in a CSV
-        format. After collecting the data, I used Pandas to clean it up and
-        organize it into JSONs. For the final touch, I combined React and the
-        powerful graph library D3.js to design the UI and visualize the data,
-        making the app both informative and interactive.
+        The data for this graph was not freely available, so my first step was
+        to code a custom web scraper with Python and Selenium. This scraper then
+        crawled a site with historical rankings of the Beatport, capture all the
+        tracks of the Beatport Top 100 on the first of each month over a
+        decade-long span. After collecting the data in a CSV, I used Pandas to
+        clean it up and organize it into JSONs. For the final touch, I combined
+        React and the powerful graph library D3.js to design the UI and
+        visualize the data, making the app both informative and interactive.
       </p>
       <p>
         <strong>What is the Beatport Top 100?</strong>{" "}
